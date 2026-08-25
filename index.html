@@ -2,265 +2,187 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GRADKASE Official — Graded Card Armor & Accessories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRADKASE Official — Graded Card Armor</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      min-width: 1200px;
-    }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
   </style>
 </head>
 <body class="bg-[#f7f7f7] text-[#191919] antialiased selection:bg-[#ff6900] selection:text-white">
 
-  <!-- 1. Mi Top Utility Bar -->
-  <div class="bg-[#191919] text-[#8c8c8c] text-[11px] h-10 flex items-center border-b border-white/5">
-    <div class="w-[1200px] mx-auto px-4 flex justify-between items-center">
+  <!-- 1. Top Bar (Hidden on Mobile) -->
+  <div class="bg-[#191919] text-[#8c8c8c] text-[11px] h-8 hidden md:flex items-center border-b border-white/5">
+    <div class="max-w-6xl w-full mx-auto px-4 flex justify-between items-center">
       <div class="flex space-x-6">
         <a href="#flagship" class="hover:text-white transition">GRADKASE GLOBAL</a>
         <a href="#series" class="hover:text-white transition">ACCESSORIES</a>
-        <a href="#tech" class="hover:text-white transition">ARMOR TECH</a>
       </div>
       <div class="flex space-x-6">
         <a href="#" class="hover:text-white transition">Global Edition</a>
-        <a href="#" class="hover:text-white transition">Support</a>
       </div>
     </div>
   </div>
 
   <!-- 2. Main Navigation Bar -->
   <header class="bg-white sticky top-0 z-40 border-b border-black/5 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-    <div class="w-[1200px] mx-auto px-4 h-18 flex items-center justify-between">
-      <div class="flex items-center space-x-12">
-        <div class="w-10 h-10 bg-[#ff6900] rounded-xl flex items-center justify-center font-extrabold text-white text-base tracking-wider">
+    <div class="max-w-6xl mx-auto px-4 h-14 md:h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-6 md:space-x-10">
+        <div class="w-8 h-8 md:w-9 md:h-9 bg-[#ff6900] rounded-xl flex items-center justify-center font-extrabold text-white text-sm">
           GK
         </div>
-        <nav class="flex items-center space-x-8 text-sm font-medium text-[#191919]">
+        <nav class="hidden md:flex items-center space-x-6 text-xs md:text-sm font-medium text-[#191919]">
           <a href="#flagship" class="hover:text-[#ff6900] transition">Pro Slabs</a>
-          <a href="#cases" class="hover:text-[#ff6900] transition">Heavy Vaults</a>
-          <a href="#decals" class="hover:text-[#ff6900] transition">Tactical Decals</a>
-          <a href="#tech" class="hover:text-[#ff6900] transition">Optics & Tech</a>
+          <a href="#series" class="hover:text-[#ff6900] transition">Hardware</a>
+          <a href="#tech" class="hover:text-[#ff6900] transition">Tech</a>
         </nav>
       </div>
-      <div class="flex items-center space-x-6">
-        <button onclick="openModal('Cart is currently empty')" class="text-xs font-semibold text-[#191919] hover:text-[#ff6900] transition flex items-center bg-[#f2f2f2] px-4 py-2 rounded-full">
-          Cart (0)
-        </button>
-      </div>
+      <button onclick="openModal('Cart is currently empty')" class="text-xs font-semibold text-[#191919] hover:text-[#ff6900] transition bg-[#f2f2f2] px-3.5 py-1.5 rounded-full">
+        Cart (0)
+      </button>
     </div>
   </header>
 
-  <!-- 3. Xiaomi-Style Large Hero Product Banner -->
-  <section id="flagship" class="w-[1200px] mx-auto mt-6">
-    <div class="bg-white rounded-3xl p-16 flex items-center justify-between border border-black/5 shadow-sm relative overflow-hidden">
-      <div class="max-w-md z-10">
-        <span class="inline-block bg-[#fff0e6] text-[#ff6900] text-xs font-bold px-3 py-1 rounded-full mb-4">
+  <!-- 3. Hero Product Banner (Responsive Layout) -->
+  <section id="flagship" class="max-w-6xl mx-auto px-4 mt-4 md:mt-6">
+    <div class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-12 flex flex-col-reverse md:flex-row items-center justify-between border border-black/5 shadow-sm gap-8">
+      <div class="w-full md:max-w-md text-center md:text-left">
+        <span class="inline-block bg-[#fff0e6] text-[#ff6900] text-[10px] md:text-xs font-bold px-2.5 py-0.5 rounded-full mb-3">
           FLAGSHIP LAUNCH
         </span>
-        <h1 class="text-5xl font-extrabold tracking-tight text-[#191919] mb-3 leading-tight">
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-[#191919] mb-2 leading-tight">
           GRADKASE Pro 1
         </h1>
-        <p class="text-xl text-[#ff6900] font-bold mb-3">Master Every Dimension of Protection</p>
-        <p class="text-sm text-[#757575] leading-relaxed mb-8">
+        <p class="text-base md:text-lg text-[#ff6900] font-bold mb-2">Master Every Dimension of Protection</p>
+        <p class="text-xs md:text-sm text-[#757575] leading-relaxed mb-6">
           CNC Machined Acrylic • 99.9% Dual UV Filtering • N52 Neodymium Magnetic Seal
         </p>
-        <div class="flex items-baseline space-x-3 mb-8">
-          <span class="text-3xl font-extrabold text-[#ff6900]">$29.00</span>
-          <span class="text-sm text-[#8c8c8c] line-through">$39.00</span>
+        <div class="flex items-baseline justify-center md:justify-start space-x-3 mb-6">
+          <span class="text-2xl md:text-3xl font-extrabold text-[#ff6900]">$29.00</span>
+          <span class="text-xs text-[#8c8c8c] line-through">$39.00</span>
         </div>
-        <div class="flex space-x-4">
-          <button onclick="openModal('GRADKASE Pro 1')" class="bg-[#ff6900] hover:bg-[#e05d00] text-white px-8 py-3 rounded-xl text-sm font-semibold transition">
+        <div class="flex space-x-3 justify-center md:justify-start">
+          <button onclick="openModal('GRADKASE Pro 1')" class="flex-1 md:flex-none bg-[#ff6900] hover:bg-[#e05d00] text-white px-6 py-2.5 rounded-xl text-xs md:text-sm font-semibold transition">
             Learn More
           </button>
-          <button onclick="openModal('GRADKASE Pro 1')" class="bg-[#191919] hover:bg-black text-white px-8 py-3 rounded-xl text-sm font-semibold transition">
+          <button onclick="openModal('GRADKASE Pro 1')" class="flex-1 md:flex-none bg-[#191919] hover:bg-black text-white px-6 py-2.5 rounded-xl text-xs md:text-sm font-semibold transition">
             Buy Now
           </button>
         </div>
       </div>
-      <!-- Hero Product Showcase Frame -->
-      <div class="w-[520px] h-[360px] bg-[#f5f5f7] rounded-2xl flex flex-col items-center justify-center border border-black/5">
-        <span class="text-5xl mb-3">🛡️</span>
-        <span class="text-xs text-[#8c8c8c] font-mono tracking-wider">[ GRADKASE PRO 1 FLAGSHIP SLAB ]</span>
+      <div class="w-full md:w-[460px] h-[220px] md:h-[300px] bg-[#f5f5f7] rounded-xl md:rounded-2xl flex flex-col items-center justify-center border border-black/5">
+        <span class="text-4xl mb-2">🛡️</span>
+        <span class="text-[10px] text-[#8c8c8c] font-mono tracking-wider">[ PRO 1 SLAB DISPLAY ]</span>
       </div>
     </div>
   </section>
 
-  <!-- 4. Sub-Hero Dual Banners (Like Xiaomi Sub-flagships) -->
-  <section class="w-[1200px] mx-auto mt-6 grid grid-cols-2 gap-6">
-    
-    <div class="bg-white rounded-3xl p-10 border border-black/5 shadow-sm flex items-center justify-between">
-      <div class="max-w-[240px]">
-        <span class="text-[10px] font-bold tracking-wider uppercase text-[#ff6900] bg-[#fff0e6] px-2 py-0.5 rounded">NEW ARRIVAL</span>
-        <h2 class="text-2xl font-bold mt-2 mb-1">Vault Carrier 60</h2>
-        <p class="text-xs text-[#757575] mb-4">Mil-Spec Waterproof Graded Card Case</p>
-        <p class="text-lg font-bold text-[#191919] mb-4">$59.00</p>
-        <button onclick="openModal('Vault Carrier 60')" class="bg-[#191919] hover:bg-black text-white px-5 py-2 rounded-lg text-xs font-semibold transition">
-          Discover
-        </button>
-      </div>
-      <div class="w-44 h-44 bg-[#f5f5f7] rounded-xl flex flex-col items-center justify-center border border-black/5">
-        <span class="text-3xl mb-1">💼</span>
-        <span class="text-[10px] text-[#8c8c8c] font-mono">[ VAULT 60 ]</span>
-      </div>
-    </div>
+  <!-- 4. Product Grid (1 Column on Mobile, 2 on Tablet, 4 on Desktop) -->
+  <section id="series" class="max-w-6xl mx-auto px-4 mt-8 md:mt-12 mb-12">
+    <h2 class="text-xl md:text-2xl font-bold text-[#191919] mb-4">Featured Lineup</h2>
 
-    <div class="bg-white rounded-3xl p-10 border border-black/5 shadow-sm flex items-center justify-between">
-      <div class="max-w-[240px]">
-        <span class="text-[10px] font-bold tracking-wider uppercase text-[#ff6900] bg-[#fff0e6] px-2 py-0.5 rounded">HOT ITEM</span>
-        <h2 class="text-2xl font-bold mt-2 mb-1">Tactical Decal V2</h2>
-        <p class="text-xs text-[#757575] mb-4">Matte Scratch-Proof Slab Graphics</p>
-        <p class="text-lg font-bold text-[#191919] mb-4">$9.90</p>
-        <button onclick="openModal('Tactical Decal V2')" class="bg-[#191919] hover:bg-black text-white px-5 py-2 rounded-lg text-xs font-semibold transition">
-          Discover
-        </button>
-      </div>
-      <div class="w-44 h-44 bg-[#f5f5f7] rounded-xl flex flex-col items-center justify-center border border-black/5">
-        <span class="text-3xl mb-1">⚡</span>
-        <span class="text-[10px] text-[#8c8c8c] font-mono">[ DECALS V2 ]</span>
-      </div>
-    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-  </section>
-
-  <!-- 5. E-commerce Grid Lineup (Mi.com Catalog Style) -->
-  <section id="series" class="w-[1200px] mx-auto mt-14 mb-16">
-    <div class="flex justify-between items-baseline mb-6">
-      <h2 class="text-2xl font-bold text-[#191919]">Featured Hardware</h2>
-      <a href="#flagship" class="text-xs font-semibold text-[#757575] hover:text-[#ff6900] transition flex items-center">
-        View All Products <span class="ml-1">›</span>
-      </a>
-    </div>
-
-    <div class="grid grid-cols-4 gap-4">
-
-      <!-- Product Card 1 -->
-      <div class="bg-white rounded-2xl p-5 border border-black/5 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between text-center group">
-        <div class="w-full h-44 bg-[#f7f7f7] rounded-xl mb-4 flex flex-col items-center justify-center border border-black/5 group-hover:bg-[#f2f2f2] transition">
-          <span class="text-3xl mb-1">🎴</span>
-          <span class="text-[10px] text-[#8c8c8c] font-mono">[ PRO SLAB PSA ]</span>
+      <!-- Product 1 -->
+      <div class="bg-white rounded-2xl p-5 border border-black/5 shadow-sm flex flex-col justify-between text-center">
+        <div class="w-full h-40 bg-[#f7f7f7] rounded-xl mb-3 flex flex-col items-center justify-center border border-black/5">
+          <span class="text-2xl mb-1">🎴</span>
+          <span class="text-[10px] text-[#8c8c8c] font-mono">[ PSA SLAB ]</span>
         </div>
         <div>
-          <h3 class="font-bold text-sm text-[#191919] mb-1">GRADKASE Pro for PSA</h3>
-          <p class="text-[11px] text-[#757575] mb-3">Ultra-Clear Anti-Scratch Acrylic</p>
-          <p class="text-sm font-bold text-[#ff6900] mb-4">$24.00</p>
-          <button onclick="openModal('GRADKASE Pro for PSA')" class="w-full bg-[#ff6900] hover:bg-[#e05d00] text-white py-2 rounded-lg text-xs font-semibold transition">
-            Buy Now
-          </button>
+          <h3 class="font-bold text-sm text-[#191919] mb-0.5">GRADKASE for PSA</h3>
+          <p class="text-[11px] text-[#757575] mb-2">Anti-Scratch Acrylic</p>
+          <p class="text-sm font-bold text-[#ff6900] mb-3">$24.00</p>
+          <button onclick="openModal('GRADKASE for PSA')" class="w-full bg-[#ff6900] hover:bg-[#e05d00] text-white py-2 rounded-lg text-xs font-semibold transition">Buy Now</button>
         </div>
       </div>
 
-      <!-- Product Card 2 -->
-      <div class="bg-white rounded-2xl p-5 border border-black/5 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between text-center group">
-        <div class="w-full h-44 bg-[#f7f7f7] rounded-xl mb-4 flex flex-col items-center justify-center border border-black/5 group-hover:bg-[#f2f2f2] transition">
-          <span class="text-3xl mb-1">🎴</span>
-          <span class="text-[10px] text-[#8c8c8c] font-mono">[ PRO SLAB BGS ]</span>
+      <!-- Product 2 -->
+      <div class="bg-white rounded-2xl p-5 border border-black/5 shadow-sm flex flex-col justify-between text-center">
+        <div class="w-full h-40 bg-[#f7f7f7] rounded-xl mb-3 flex flex-col items-center justify-center border border-black/5">
+          <span class="text-2xl mb-1">🎴</span>
+          <span class="text-[10px] text-[#8c8c8c] font-mono">[ BGS SLAB ]</span>
         </div>
         <div>
-          <h3 class="font-bold text-sm text-[#191919] mb-1">GRADKASE Pro for BGS</h3>
-          <p class="text-[11px] text-[#757575] mb-3">Custom Deep-Cavity Protection</p>
-          <p class="text-sm font-bold text-[#ff6900] mb-4">$26.00</p>
-          <button onclick="openModal('GRADKASE Pro for BGS')" class="w-full bg-[#ff6900] hover:bg-[#e05d00] text-white py-2 rounded-lg text-xs font-semibold transition">
-            Buy Now
-          </button>
+          <h3 class="font-bold text-sm text-[#191919] mb-0.5">GRADKASE for BGS</h3>
+          <p class="text-[11px] text-[#757575] mb-2">Deep-Cavity Fit</p>
+          <p class="text-sm font-bold text-[#ff6900] mb-3">$26.00</p>
+          <button onclick="openModal('GRADKASE for BGS')" class="w-full bg-[#ff6900] hover:bg-[#e05d00] text-white py-2 rounded-lg text-xs font-semibold transition">Buy Now</button>
         </div>
       </div>
 
-      <!-- Product Card 3 -->
-      <div class="bg-white rounded-2xl p-5 border border-black/5 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between text-center group">
-        <div class="w-full h-44 bg-[#f7f7f7] rounded-xl mb-4 flex flex-col items-center justify-center border border-black/5 group-hover:bg-[#f2f2f2] transition">
-          <span class="text-3xl mb-1">📦</span>
-          <span class="text-[10px] text-[#8c8c8c] font-mono">[ BINDER 12-POCKET ]</span>
+      <!-- Product 3 -->
+      <div class="bg-white rounded-2xl p-5 border border-black/5 shadow-sm flex flex-col justify-between text-center">
+        <div class="w-full h-40 bg-[#f7f7f7] rounded-xl mb-3 flex flex-col items-center justify-center border border-black/5">
+          <span class="text-2xl mb-1">💼</span>
+          <span class="text-[10px] text-[#8c8c8c] font-mono">[ VAULT 60 ]</span>
         </div>
         <div>
-          <h3 class="font-bold text-sm text-[#191919] mb-1">Armor Binder Pro</h3>
-          <p class="text-[11px] text-[#757575] mb-3">Archival Side-Loading 480 Cards</p>
-          <p class="text-sm font-bold text-[#ff6900] mb-4">$34.00</p>
-          <button onclick="openModal('Armor Binder Pro')" class="w-full bg-[#ff6900] hover:bg-[#e05d00] text-white py-2 rounded-lg text-xs font-semibold transition">
-            Buy Now
-          </button>
+          <h3 class="font-bold text-sm text-[#191919] mb-0.5">Vault Carrier 60</h3>
+          <p class="text-[11px] text-[#757575] mb-2">Waterproof Hardcase</p>
+          <p class="text-sm font-bold text-[#ff6900] mb-3">$59.00</p>
+          <button onclick="openModal('Vault Carrier 60')" class="w-full bg-[#ff6900] hover:bg-[#e05d00] text-white py-2 rounded-lg text-xs font-semibold transition">Buy Now</button>
         </div>
       </div>
 
-      <!-- Product Card 4 -->
-      <div class="bg-white rounded-2xl p-5 border border-black/5 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between text-center group">
-        <div class="w-full h-44 bg-[#f7f7f7] rounded-xl mb-4 flex flex-col items-center justify-center border border-black/5 group-hover:bg-[#f2f2f2] transition">
-          <span class="text-3xl mb-1">🧲</span>
-          <span class="text-[10px] text-[#8c8c8c] font-mono">[ ACRYLIC STAND ]</span>
+      <!-- Product 4 -->
+      <div class="bg-white rounded-2xl p-5 border border-black/5 shadow-sm flex flex-col justify-between text-center">
+        <div class="w-full h-40 bg-[#f7f7f7] rounded-xl mb-3 flex flex-col items-center justify-center border border-black/5">
+          <span class="text-2xl mb-1">⚡</span>
+          <span class="text-[10px] text-[#8c8c8c] font-mono">[ DECALS ]</span>
         </div>
         <div>
-          <h3 class="font-bold text-sm text-[#191919] mb-1">Tactical Display Stand</h3>
-          <p class="text-[11px] text-[#757575] mb-3">Weighted Aluminum & Acrylic Base</p>
-          <p class="text-sm font-bold text-[#ff6900] mb-4">$12.00</p>
-          <button onclick="openModal('Tactical Display Stand')" class="w-full bg-[#ff6900] hover:bg-[#e05d00] text-white py-2 rounded-lg text-xs font-semibold transition">
-            Buy Now
-          </button>
+          <h3 class="font-bold text-sm text-[#191919] mb-0.5">Tactical Decal V2</h3>
+          <p class="text-[11px] text-[#757575] mb-2">Matte Precision Cut</p>
+          <p class="text-sm font-bold text-[#ff6900] mb-3">$9.90</p>
+          <button onclick="openModal('Tactical Decal V2')" class="w-full bg-[#ff6900] hover:bg-[#e05d00] text-white py-2 rounded-lg text-xs font-semibold transition">Buy Now</button>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- 6. Tech Highlights Section -->
-  <section id="tech" class="w-[1200px] mx-auto mb-20">
-    <div class="bg-white rounded-3xl p-12 border border-black/5 shadow-sm">
-      <h2 class="text-2xl font-bold text-center mb-10 text-[#191919]">Engineered For Absolute Preservation</h2>
-      <div class="grid grid-cols-3 gap-8 text-center">
+  <!-- 5. Tech Highlights -->
+  <section id="tech" class="max-w-6xl mx-auto px-4 mb-16">
+    <div class="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 border border-black/5 shadow-sm">
+      <h2 class="text-lg md:text-xl font-bold text-center mb-6 text-[#191919]">Engineered For Preservation</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
         <div>
-          <div class="w-12 h-12 bg-[#fff0e6] text-[#ff6900] rounded-2xl flex items-center justify-center mx-auto mb-4 text-xl font-bold">99%</div>
-          <h3 class="font-bold text-sm mb-1">UV Ray Filtering</h3>
-          <p class="text-xs text-[#757575]">Prevents card autograph degradation and holofoil yellowing over time.</p>
+          <div class="text-lg font-bold text-[#ff6900] mb-1">99% UV Block</div>
+          <p class="text-xs text-[#757575]">Prevents card autograph degradation over time.</p>
         </div>
         <div>
-          <div class="w-12 h-12 bg-[#fff0e6] text-[#ff6900] rounded-2xl flex items-center justify-center mx-auto mb-4 text-xl font-bold">0%</div>
-          <h3 class="font-bold text-sm mb-1">Acid & PVC Free</h3>
-          <p class="text-xs text-[#757575]">Museum-grade materials to prevent any chemical erosion or card transfer.</p>
+          <div class="text-lg font-bold text-[#ff6900] mb-1">0% Acid / PVC</div>
+          <p class="text-xs text-[#757575]">Museum-grade material with zero chemical transfer.</p>
         </div>
         <div>
-          <div class="w-12 h-12 bg-[#fff0e6] text-[#ff6900] rounded-2xl flex items-center justify-center mx-auto mb-4 text-xl font-bold">N52</div>
-          <h3 class="font-bold text-sm mb-1">Rare-Earth Magnets</h3>
-          <p class="text-xs text-[#757575]">Instant seamless locking with drop-proof tactical impact dispersion.</p>
+          <div class="text-lg font-bold text-[#ff6900] mb-1">N52 Magnets</div>
+          <p class="text-xs text-[#757575]">Seamless snap-locking with high impact defense.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 7. Mi-Style Mock Modal -->
-  <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden flex items-center justify-center">
-    <div class="bg-white rounded-3xl w-[400px] p-8 text-center shadow-2xl border border-black/10">
-      <div class="w-12 h-12 rounded-full bg-[#fff0e6] text-[#ff6900] flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-        GK
-      </div>
-      <h3 class="text-lg font-bold text-[#191919] mb-2" id="modalTitle">Official Allocation</h3>
-      <p class="text-xs text-[#757575] mb-6 leading-relaxed">
-        This product batch is currently fulfilled via official marketplace partners and authorized distributors.
-      </p>
-      <div class="space-y-3">
-        <a href="https://your-shop-link.com" class="block w-full bg-[#ff6900] hover:bg-[#e05d00] text-white py-3 rounded-xl text-xs font-semibold transition">
-          Go to Official Store
-        </a>
-        <button onclick="closeModal()" class="block w-full py-2.5 text-xs text-[#8c8c8c] hover:text-[#191919] transition">
-          Continue Browsing
-        </button>
-      </div>
+  <!-- 6. Modal -->
+  <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-xs w-full p-6 text-center shadow-xl border border-black/10">
+      <div class="w-10 h-10 rounded-full bg-[#fff0e6] text-[#ff6900] flex items-center justify-center mx-auto mb-3 text-sm font-bold">GK</div>
+      <h3 class="text-sm font-bold text-[#191919] mb-1" id="modalTitle">Official Allocation</h3>
+      <p class="text-xs text-[#757575] mb-4">Stock available at authorized partners.</p>
+      <a href="https://your-shop-link.com" class="block w-full bg-[#ff6900] hover:bg-[#e05d00] text-white py-2.5 rounded-lg text-xs font-semibold transition mb-2">Go to Store</a>
+      <button onclick="closeModal()" class="block w-full py-1 text-xs text-[#8c8c8c] hover:text-[#191919] transition">Close</button>
     </div>
   </div>
 
-  <!-- 8. Mi-Style Footer -->
-  <footer class="bg-white border-t border-black/5 pt-12 pb-16">
-    <div class="w-[1200px] mx-auto px-4 flex justify-between items-center text-xs text-[#8c8c8c]">
-      <div class="flex space-x-6">
-        <a href="#" class="hover:text-[#ff6900] transition">Privacy Policy</a>
-        <a href="#" class="hover:text-[#ff6900] transition">Terms of Sale</a>
-        <a href="#" class="hover:text-[#ff6900] transition">Integrity & Standards</a>
-      </div>
-      <p>© 2026 GRADKASE Technology Co., Ltd. All rights reserved.</p>
-    </div>
+  <!-- 7. Footer -->
+  <footer class="bg-white border-t border-black/5 py-8 text-center text-xs text-[#8c8c8c]">
+    <p>© 2026 GRADKASE Technology Co., Ltd. All rights reserved.</p>
   </footer>
 
   <script>
     function openModal(title) {
-      document.getElementById('modalTitle').innerText = title + ' · Stock Allocation';
+      document.getElementById('modalTitle').innerText = title;
       document.getElementById('checkoutModal').classList.remove('hidden');
     }
     function closeModal() {
