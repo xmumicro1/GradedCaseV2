@@ -9,18 +9,9 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
 
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 20s linear infinite;
-    }
-    .marquee-container:hover .marquee-track {
-      animation-play-state: paused;
-    }
+    /* 隐藏横向滚动条，保持视觉极简 */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="bg-[#f7f7f7] text-[#191919] antialiased selection:bg-[#ff6900] selection:text-white">
@@ -29,12 +20,12 @@
   <div class="bg-[#191919] text-[#8c8c8c] text-[11px] h-8 hidden md:flex items-center border-b border-white/5">
     <div class="max-w-6xl w-full mx-auto px-4 flex justify-between items-center">
       <div class="flex space-x-6">
-        <a href="#flagship" class="hover:text-white transition">GRADKASE GLOBAL1</a>
+        <a href="#flagship" class="hover:text-white transition">GRADKASE GLOBAL</a>
         <a href="#series" class="hover:text-white transition">ACCESSORIES</a>
         <a href="#community" class="hover:text-white transition">COMMUNITY</a>
       </div>
       <div class="flex space-x-6">
-        <a href="#" class="hover:text-white transition">Global Edition1</a>
+        <a href="#" class="hover:text-white transition">Global Edition</a>
       </div>
     </div>
   </div>
@@ -205,124 +196,89 @@
     </div>
   </section>
 
-  <!-- 6. 3-Video Marquee Wall (Clickable TikTok Links) -->
-  <section id="community" class="w-full overflow-hidden py-8 mb-16">
-    <div class="max-w-6xl mx-auto px-4 mb-6 flex flex-col md:flex-row md:items-end justify-between">
+  <!-- 6. Manual Video Carousel (左右换页切换) -->
+  <section id="community" class="max-w-6xl mx-auto px-4 mb-16">
+    <div class="flex items-end justify-between mb-6">
       <div>
         <span class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-[#ff6900]">#GRADKASE IN ACTION</span>
         <h2 class="text-xl md:text-2xl font-bold text-[#191919] mt-1">Community Showcase</h2>
       </div>
-      <p class="text-xs text-[#757575] mt-1 md:mt-0">Click to watch on TikTok • Tag <span class="font-semibold text-[#191919]">@gradkase</span> to get featured</p>
-    </div>
 
-    <div class="marquee-container w-full overflow-hidden relative cursor-pointer">
-      <div class="marquee-track space-x-6 px-3">
-        
-        <!-- === SET 1 (3 Videos) === -->
-        
-        <!-- Video 1 -->
-      <!-- 单个 TikTok 卡片 -->
-<a href="https://www.tiktok.com/@catherinemcdonough1/video/7646033019123305735" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   class="w-[220px] md:w-[260px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0 block hover:shadow-md transition">
-  
-  <!-- 封面图容器（9:16 比例） -->
-  <div class="aspect-[9/16] bg-black relative group overflow-hidden">
-    <!-- 替换为该视频的截图封面或动图 -->
-    <img src="https://placehold.co/400x710/191919/ffffff?text=TikTok+Video+Cover" 
-         alt="TikTok Showcase" 
-         class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-    
-    <!-- 播放按钮悬浮层 -->
-    <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-      <div class="w-10 h-10 rounded-full bg-white/90 text-black flex items-center justify-center pl-0.5 text-sm shadow-md">
-        ▶
+      <!-- 左右切换箭头按钮 -->
+      <div class="flex space-x-2">
+        <button onclick="scrollSlider('left')" class="w-9 h-9 rounded-full bg-white border border-black/10 hover:bg-black hover:text-white text-black flex items-center justify-center text-sm font-bold transition shadow-sm" aria-label="Previous">
+          ‹
+        </button>
+        <button onclick="scrollSlider('right')" class="w-9 h-9 rounded-full bg-white border border-black/10 hover:bg-black hover:text-white text-black flex items-center justify-center text-sm font-bold transition shadow-sm" aria-label="Next">
+          ›
+        </button>
       </div>
     </div>
-    
-    <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
-  </div>
 
-  <div class="p-3 bg-white">
-    <p class="text-xs font-bold text-[#191919] truncate">@catherinemcdonough1</p>
-    <p class="text-[11px] text-[#757575] truncate mt-0.5">Watch on TikTok ↗</p>
-  </div>
-</a>
+    <!-- 滚动卡片轨道 (带平滑 Snap 吸附) -->
+    <div id="videoSlider" class="flex space-x-4 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-2">
 
-        <!-- Video 2 -->
-        <a href="https://www.tiktok.com/@catherinemcdonough1/video/7646033019123305735?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="w-[220px] md:w-[260px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0 block hover:shadow-md transition">
-          <div class="aspect-[9/16] bg-black relative">
-            <video class="w-full h-full object-cover pointer-events-none" autoplay muted loop playsinline poster="https://placehold.co/400x710/191919/ffffff?text=Video+2">
-              <source src="your-video-2.mp4" type="video/mp4">
-            </video>
-            <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
+      <!-- Card 1 (点击跳转真实 TikTok 链接) -->
+      <a href="https://www.tiktok.com/@catherinemcdonough1/video/7646033019123305735" target="_blank" rel="noopener noreferrer" class="w-[240px] md:w-[270px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0 block hover:shadow-md transition snap-start group">
+        <div class="aspect-[9/16] bg-black relative overflow-hidden">
+          <!-- 替换为你的封面图（建议放在同目录并引用） -->
+          <img src="https://placehold.co/400x710/191919/ffffff?text=TikTok+Video+1" alt="TikTok Cover" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+            <div class="w-10 h-10 rounded-full bg-white/90 text-black flex items-center justify-center pl-0.5 text-xs shadow-md">▶</div>
           </div>
-          <div class="p-3 bg-white">
-            <p class="text-xs font-bold text-[#191919] truncate">@pokegems_official</p>
-            <p class="text-[11px] text-[#757575] truncate mt-0.5">PSA 10 Charizard Armor</p>
-          </div>
-        </a>
+          <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
+        </div>
+        <div class="p-3.5 bg-white">
+          <p class="text-xs font-bold text-[#191919] truncate">@catherinemcdonough1</p>
+          <p class="text-[11px] text-[#757575] truncate mt-0.5">Watch on TikTok ↗</p>
+        </div>
+      </a>
 
-        <!-- Video 3 -->
-        <a href="https://www.tiktok.com/@yourbrand/video/3456789012" target="_blank" rel="noopener noreferrer" class="w-[220px] md:w-[260px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0 block hover:shadow-md transition">
-          <div class="aspect-[9/16] bg-black relative">
-            <video class="w-full h-full object-cover pointer-events-none" autoplay muted loop playsinline poster="https://placehold.co/400x710/191919/ffffff?text=Video+3">
-              <source src="your-video-3.mp4" type="video/mp4">
-            </video>
-            <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
+      <!-- Card 2 -->
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" class="w-[240px] md:w-[270px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0 block hover:shadow-md transition snap-start group">
+        <div class="aspect-[9/16] bg-black relative overflow-hidden">
+          <img src="https://placehold.co/400x710/191919/ffffff?text=TikTok+Video+2" alt="TikTok Cover" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+            <div class="w-10 h-10 rounded-full bg-white/90 text-black flex items-center justify-center pl-0.5 text-xs shadow-md">▶</div>
           </div>
-          <div class="p-3 bg-white">
-            <p class="text-xs font-bold text-[#191919] truncate">@slab_armory</p>
-            <p class="text-[11px] text-[#757575] truncate mt-0.5">UV blocking test results</p>
-          </div>
-        </a>
+          <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
+        </div>
+        <div class="p-3.5 bg-white">
+          <p class="text-xs font-bold text-[#191919] truncate">@cardcollector_pro</p>
+          <p class="text-[11px] text-[#757575] truncate mt-0.5">Slab drop test review ↗</p>
+        </div>
+      </a>
 
-        <!-- === SET 2 (Duplicate for Seamless Loop) === -->
+      <!-- Card 3 -->
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" class="w-[240px] md:w-[270px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0 block hover:shadow-md transition snap-start group">
+        <div class="aspect-[9/16] bg-black relative overflow-hidden">
+          <img src="https://placehold.co/400x710/191919/ffffff?text=TikTok+Video+3" alt="TikTok Cover" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+            <div class="w-10 h-10 rounded-full bg-white/90 text-black flex items-center justify-center pl-0.5 text-xs shadow-md">▶</div>
+          </div>
+          <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
+        </div>
+        <div class="p-3.5 bg-white">
+          <p class="text-xs font-bold text-[#191919] truncate">@slab_armory</p>
+          <p class="text-[11px] text-[#757575] truncate mt-0.5">UV light test demo ↗</p>
+        </div>
+      </a>
 
-        <!-- Duplicate Video 1 -->
-        <a href="https://www.tiktok.com/@yourbrand/video/1234567890" target="_blank" rel="noopener noreferrer" class="w-[220px] md:w-[260px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0 block hover:shadow-md transition">
-          <div class="aspect-[9/16] bg-black relative">
-            <video class="w-full h-full object-cover pointer-events-none" autoplay muted loop playsinline poster="https://placehold.co/400x710/191919/ffffff?text=Video+1">
-              <source src="your-video-1.mp4" type="video/mp4">
-            </video>
-            <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
+      <!-- Card 4 (额外卡片方便翻页体验) -->
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" class="w-[240px] md:w-[270px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0 block hover:shadow-md transition snap-start group">
+        <div class="aspect-[9/16] bg-black relative overflow-hidden">
+          <img src="https://placehold.co/400x710/191919/ffffff?text=TikTok+Video+4" alt="TikTok Cover" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+            <div class="w-10 h-10 rounded-full bg-white/90 text-black flex items-center justify-center pl-0.5 text-xs shadow-md">▶</div>
           </div>
-          <div class="p-3 bg-white">
-            <p class="text-xs font-bold text-[#191919] truncate">@cardcollector_pro</p>
-            <p class="text-[11px] text-[#757575] truncate mt-0.5">Slab drop test 🔥</p>
-          </div>
-        </a>
+          <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
+        </div>
+        <div class="p-3.5 bg-white">
+          <p class="text-xs font-bold text-[#191919] truncate">@gradedgrails</p>
+          <p class="text-[11px] text-[#757575] truncate mt-0.5">Vault 60 loaded ↗</p>
+        </div>
+      </a>
 
-        <!-- Duplicate Video 2 -->
-        <a href="https://www.tiktok.com/@yourbrand/video/2345678901" target="_blank" rel="noopener noreferrer" class="w-[220px] md:w-[260px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0 block hover:shadow-md transition">
-          <div class="aspect-[9/16] bg-black relative">
-            <video class="w-full h-full object-cover pointer-events-none" autoplay muted loop playsinline poster="https://placehold.co/400x710/191919/ffffff?text=Video+2">
-              <source src="your-video-2.mp4" type="video/mp4">
-            </video>
-            <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
-          </div>
-          <div class="p-3 bg-white">
-            <p class="text-xs font-bold text-[#191919] truncate">@pokegems_official</p>
-            <p class="text-[11px] text-[#757575] truncate mt-0.5">PSA 10 Charizard Armor</p>
-          </div>
-        </a>
-
-        <!-- Duplicate Video 3 -->
-        <a href="https://www.tiktok.com/@yourbrand/video/3456789012" target="_blank" rel="noopener noreferrer" class="w-[220px] md:w-[260px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0 block hover:shadow-md transition">
-          <div class="aspect-[9/16] bg-black relative">
-            <video class="w-full h-full object-cover pointer-events-none" autoplay muted loop playsinline poster="https://placehold.co/400x710/191919/ffffff?text=Video+3">
-              <source src="your-video-3.mp4" type="video/mp4">
-            </video>
-            <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
-          </div>
-          <div class="p-3 bg-white">
-            <p class="text-xs font-bold text-[#191919] truncate">@slab_armory</p>
-            <p class="text-[11px] text-[#757575] truncate mt-0.5">UV blocking test results</p>
-          </div>
-        </a>
-
-      </div>
     </div>
   </section>
 
@@ -342,7 +298,18 @@
     <p>© 2026 GRADKASE Technology Co., Ltd. All rights reserved.</p>
   </footer>
 
+  <!-- 轮播滚动脚本 -->
   <script>
+    function scrollSlider(direction) {
+      const slider = document.getElementById('videoSlider');
+      const cardWidth = 280; // 包含间距的单张卡片宽度
+      if (direction === 'left') {
+        slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      } else {
+        slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }
+    }
+
     function openModal(title) {
       document.getElementById('modalTitle').innerText = title;
       document.getElementById('checkoutModal').classList.remove('hidden');
