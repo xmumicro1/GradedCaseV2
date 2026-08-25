@@ -1,99 +1,105 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GRADKASE — 官方旗舰展示</title>
+  <title>GRADKASE — Precision Collectible Armor</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      min-width: 1200px;
+    }
     .text-gradient {
-      background: linear-gradient(180deg, #FFFFFF 0%, #86868B 100%);
+      background: linear-gradient(180deg, #1d1d1f 0%, #6e6e73 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   </style>
 </head>
-<body class="bg-black text-[#f5f5f7] antialiased selection:bg-white selection:text-black">
+<body class="bg-[#f5f5f7] text-[#1d1d1f] antialiased selection:bg-[#0071e3] selection:text-white">
 
-  <!-- 1. 顶部毛玻璃导航 -->
-  <nav class="fixed top-0 inset-x-0 z-40 h-12 bg-black/75 backdrop-blur-md border-b border-white/10 flex items-center justify-between px-6 max-w-6xl mx-auto md:rounded-full md:top-3">
-    <span class="font-extrabold tracking-widest text-sm text-white">GRADKASE</span>
-    <div class="flex items-center space-x-6 text-xs text-[#86868b]">
-      <a href="#store" class="hover:text-white transition">系列配件</a>
-      <a href="#specs" class="hover:text-white transition">工艺规格</a>
-      <button onclick="openModal('购物车当前为空')" class="relative hover:text-white transition">
-        🛒 购物车 <span class="ml-0.5 px-1.5 py-0.2 bg-white/20 rounded-full text-[10px] text-white">0</span>
+  <!-- 1. Apple-Style Translucent White Navigation -->
+  <nav class="fixed top-0 inset-x-0 z-40 h-12 bg-white/80 backdrop-blur-md border-b border-black/10 flex items-center justify-between px-8 w-[1140px] mx-auto rounded-full top-3 shadow-sm">
+    <span class="font-extrabold tracking-widest text-sm text-black">GRADKASE</span>
+    <div class="flex items-center space-x-8 text-xs text-[#6e6e73] font-medium">
+      <a href="#store" class="hover:text-black transition">Hardware</a>
+      <a href="#specs" class="hover:text-black transition">Specs</a>
+      <button onclick="openModal('Cart is currently empty')" class="hover:text-black transition flex items-center">
+        Cart <span class="ml-1.5 px-1.5 py-0.5 bg-black/5 rounded-full text-[10px] text-black">0</span>
       </button>
     </div>
   </nav>
 
-  <!-- 2. 电商 Hero 焦点图 -->
-  <section class="pt-28 pb-12 text-center px-4">
-    <span class="text-xs uppercase tracking-widest text-amber-500 font-bold mb-2 block">2026 Collection</span>
-    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gradient mb-3">
-      重装防护。极简重塑。
+  <!-- 2. Hero Section -->
+  <section class="pt-36 pb-16 text-center w-[1140px] mx-auto">
+    <span class="text-xs uppercase tracking-widest text-[#bf4800] font-semibold mb-3 block">2026 Collection</span>
+    <h1 class="text-6xl font-extrabold tracking-tight text-gradient mb-4">
+      Heavy-Duty Armor.<br>Re-Engineered.
     </h1>
-    <p class="text-sm md:text-base text-[#86868b] max-w-lg mx-auto mb-6">
-      专为 PSA / BGS 评级卡量身打造的高透战术装甲外壳。
+    <p class="text-lg text-[#6e6e73] max-w-xl mx-auto mb-8 font-normal leading-relaxed">
+      Precision tactical cases engineered exclusively for PSA and BGS graded slabs.
     </p>
+    <div class="flex items-center justify-center space-x-4 mb-16">
+      <a href="#store" class="bg-[#0071e3] hover:bg-[#0077ed] text-white px-6 py-2 rounded-full font-medium transition text-xs">Explore Lineup</a>
+      <a href="#specs" class="text-[#0066cc] hover:underline flex items-center text-xs font-medium">View specifications <span class="ml-1">›</span></a>
+    </div>
   </section>
 
-  <!-- 3. 电商商品网格 (Product Showcase) -->
-  <section id="store" class="max-w-6xl mx-auto px-6 py-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <!-- 3. Desktop-Only Product Showcase Grid (3 Fixed Columns) -->
+  <section id="store" class="w-[1140px] mx-auto py-6">
+    <div class="grid grid-cols-3 gap-6">
 
-      <!-- 商品 1 -->
-      <div class="bg-[#141415] border border-white/10 rounded-3xl p-6 flex flex-col justify-between hover:border-white/20 transition group">
-        <div class="w-full aspect-[4/3] bg-[#1c1c1e] rounded-2xl mb-6 flex items-center justify-center border border-white/5 group-hover:scale-[1.02] transition">
-          <span class="text-xs text-[#86868b] font-mono">[ PSA 磁吸战术卡砖 ]</span>
+      <!-- Product 1 -->
+      <div class="bg-white border border-black/5 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+        <div class="w-full h-56 bg-[#f5f5f7] rounded-2xl mb-6 flex items-center justify-center border border-black/5">
+          <span class="text-xs text-[#86868b] font-mono tracking-wider">[ PSA SLAB CASE RENDER ]</span>
         </div>
         <div>
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="text-lg font-bold text-white">GRADKASE Pro Slab</h3>
-            <span class="text-base font-semibold text-white">¥168</span>
+          <div class="flex justify-between items-baseline mb-2">
+            <h3 class="text-base font-bold text-[#1d1d1f]">GRADKASE Pro Slab</h3>
+            <span class="text-sm font-semibold text-[#1d1d1f]">$24.00</span>
           </div>
-          <p class="text-xs text-[#86868b] mb-6">99.9% 紫外线阻隔 / N52 强磁矩阵 / 45° 切角</p>
+          <p class="text-xs text-[#6e6e73] mb-6 leading-relaxed">99.9% UV Block / N52 Neodymium Magnets / 45° Chamfered Edges</p>
           <div class="flex space-x-3">
-            <button onclick="openModal('PSA 磁吸战术卡砖')" class="flex-1 bg-[#0071e3] hover:bg-[#0077ed] text-white py-2.5 rounded-full text-xs font-medium transition">立即购买</button>
-            <button onclick="openModal('PSA 磁吸战术卡砖')" class="px-4 py-2.5 rounded-full border border-white/20 text-xs hover:bg-white/10 transition">加购物车</button>
+            <button onclick="openModal('GRADKASE Pro Slab')" class="flex-1 bg-[#0071e3] hover:bg-[#0077ed] text-white py-2 rounded-full text-xs font-medium transition">Buy</button>
+            <button onclick="openModal('GRADKASE Pro Slab')" class="px-4 py-2 rounded-full border border-black/15 text-xs font-medium hover:bg-black/5 transition text-[#1d1d1f]">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 商品 2 -->
-      <div class="bg-[#141415] border border-white/10 rounded-3xl p-6 flex flex-col justify-between hover:border-white/20 transition group">
-        <div class="w-full aspect-[4/3] bg-[#1c1c1e] rounded-2xl mb-6 flex items-center justify-center border border-white/5 group-hover:scale-[1.02] transition">
-          <span class="text-xs text-[#86868b] font-mono">[ 评级卡机能收纳箱 ]</span>
+      <!-- Product 2 -->
+      <div class="bg-white border border-black/5 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+        <div class="w-full h-56 bg-[#f5f5f7] rounded-2xl mb-6 flex items-center justify-center border border-black/5">
+          <span class="text-xs text-[#86868b] font-mono tracking-wider">[ VAULT CARRIER 60 RENDER ]</span>
         </div>
         <div>
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="text-lg font-bold text-white">Vault Box 60</h3>
-            <span class="text-base font-semibold text-white">¥399</span>
+          <div class="flex justify-between items-baseline mb-2">
+            <h3 class="text-base font-bold text-[#1d1d1f]">Vault Carrier 60</h3>
+            <span class="text-sm font-semibold text-[#1d1d1f]">$59.00</span>
           </div>
-          <p class="text-xs text-[#86868b] mb-6">可容纳 60 枚评级厚砖 / 防爆气阀 / 航空级锁扣</p>
+          <p class="text-xs text-[#6e6e73] mb-6 leading-relaxed">Holds 60 Graded Slabs / Pressure Valve / Heavy Latch System</p>
           <div class="flex space-x-3">
-            <button onclick="openModal('评级卡机能收纳箱')" class="flex-1 bg-[#0071e3] hover:bg-[#0077ed] text-white py-2.5 rounded-full text-xs font-medium transition">立即购买</button>
-            <button onclick="openModal('评级卡机能收纳箱')" class="px-4 py-2.5 rounded-full border border-white/20 text-xs hover:bg-white/10 transition">加购物车</button>
+            <button onclick="openModal('Vault Carrier 60')" class="flex-1 bg-[#0071e3] hover:bg-[#0077ed] text-white py-2 rounded-full text-xs font-medium transition">Buy</button>
+            <button onclick="openModal('Vault Carrier 60')" class="px-4 py-2 rounded-full border border-black/15 text-xs font-medium hover:bg-black/5 transition text-[#1d1d1f]">Add to Cart</button>
           </div>
         </div>
       </div>
 
-      <!-- 商品 3 -->
-      <div class="bg-[#141415] border border-white/10 rounded-3xl p-6 flex flex-col justify-between hover:border-white/20 transition group">
-        <div class="w-full aspect-[4/3] bg-[#1c1c1e] rounded-2xl mb-6 flex items-center justify-center border border-white/5 group-hover:scale-[1.02] transition">
-          <span class="text-xs text-[#86868b] font-mono">[ 激光防伪全息贴纸包 ]</span>
+      <!-- Product 3 -->
+      <div class="bg-white border border-black/5 rounded-3xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+        <div class="w-full h-56 bg-[#f5f5f7] rounded-2xl mb-6 flex items-center justify-center border border-black/5">
+          <span class="text-xs text-[#86868b] font-mono tracking-wider">[ DECAL PACK V1 RENDER ]</span>
         </div>
         <div>
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="text-lg font-bold text-white">Cyber Decals V1</h3>
-            <span class="text-base font-semibold text-white">¥49</span>
+          <div class="flex justify-between items-baseline mb-2">
+            <h3 class="text-base font-bold text-[#1d1d1f]">Tactical Decal Pack</h3>
+            <span class="text-sm font-semibold text-[#1d1d1f]">$9.00</span>
           </div>
-          <p class="text-xs text-[#86868b] mb-6">高透哑光防刮 / 战术机能图腾 / 专配卡砖装饰</p>
+          <p class="text-xs text-[#6e6e73] mb-6 leading-relaxed">Matte Scratch-Proof / Precision Cut / Slab Accent Graphics</p>
           <div class="flex space-x-3">
-            <button onclick="openModal('激光防伪全息贴纸包')" class="flex-1 bg-[#0071e3] hover:bg-[#0077ed] text-white py-2.5 rounded-full text-xs font-medium transition">立即购买</button>
-            <button onclick="openModal('激光防伪全息贴纸包')" class="px-4 py-2.5 rounded-full border border-white/20 text-xs hover:bg-white/10 transition">加购物车</button>
+            <button onclick="openModal('Tactical Decal Pack')" class="flex-1 bg-[#0071e3] hover:bg-[#0077ed] text-white py-2 rounded-full text-xs font-medium transition">Buy</button>
+            <button onclick="openModal('Tactical Decal Pack')" class="px-4 py-2 rounded-full border border-black/15 text-xs font-medium hover:bg-black/5 transition text-[#1d1d1f]">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -101,32 +107,42 @@
     </div>
   </section>
 
-  <!-- 4. 假结账/意向弹窗 (Modal) -->
-  <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-[#1c1c1e] border border-white/10 rounded-3xl max-w-sm w-full p-6 text-center">
-      <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4 text-xl">📦</div>
-      <h3 class="text-lg font-bold text-white mb-1" id="modalTitle">产品预约中</h3>
-      <p class="text-xs text-[#86868b] mb-6 leading-relaxed">
-        本期现货批次正通过官方合作渠道限量配给中。
+  <!-- 4. Technical Specs Section -->
+  <section id="specs" class="w-[1140px] mx-auto py-16">
+    <div class="bg-white border border-black/5 rounded-3xl p-10 shadow-sm">
+      <h2 class="text-xl font-bold mb-6 text-gradient">Technical Specifications</h2>
+      <div class="divide-y divide-black/5 text-xs">
+        <div class="py-3 flex justify-between"><span class="text-[#6e6e73]">Compatibility</span><span class="font-medium text-[#1d1d1f]">PSA / BGS / CGC Standard Slabs</span></div>
+        <div class="py-3 flex justify-between"><span class="text-[#6e6e73]">Core Material</span><span class="font-medium text-[#1d1d1f]">Cast Acrylic Polymer + Anti-Scratch Film</span></div>
+        <div class="py-3 flex justify-between"><span class="text-[#6e6e73]">Edge Profile</span><span class="font-medium text-[#1d1d1f]">45° Chamfered Edges</span></div>
+        <div class="py-3 flex justify-between"><span class="text-[#6e6e73]">Safety Standard</span><span class="font-medium text-[#1d1d1f]">100% Acid-Free, Non-PVC Archival Grade</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Mock Modal Overlay -->
+  <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm hidden flex items-center justify-center">
+    <div class="bg-white border border-black/10 rounded-3xl w-[380px] p-8 text-center shadow-2xl">
+      <div class="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center mx-auto mb-4 text-base">📦</div>
+      <h3 class="text-base font-bold text-[#1d1d1f] mb-2" id="modalTitle">Batch Order</h3>
+      <p class="text-xs text-[#6e6e73] mb-6 leading-relaxed">
+        Current allocation is distributed via our official marketplace channels.
       </p>
-      
-      <!-- 引导按钮组：可替换为你的闲鱼、淘宝、Etsy 或小红书链接 -->
-      <div class="space-y-3">
-        <a href="https://your-shop-link.com" class="block w-full bg-[#0071e3] hover:bg-[#0077ed] text-white py-2.5 rounded-full text-xs font-medium transition">前往官方指定店购买</a>
-        <button onclick="closeModal()" class="block w-full py-2.5 text-xs text-[#86868b] hover:text-white transition">返回浏览</button>
+      <div class="space-y-2">
+        <a href="https://your-shop-link.com" class="block w-full bg-[#0071e3] hover:bg-[#0077ed] text-white py-2.5 rounded-full text-xs font-medium transition">Proceed to Official Store</a>
+        <button onclick="closeModal()" class="block w-full py-2 text-xs text-[#6e6e73] hover:text-black transition">Back to Overview</button>
       </div>
     </div>
   </div>
 
-  <!-- 5. 极简页脚 -->
-  <footer class="py-12 border-t border-white/10 text-center text-xs text-[#86868b]">
-    <p>© 2026 GRADKASE. 保留所有权利。</p>
+  <!-- 6. Footer -->
+  <footer class="py-12 text-center text-xs text-[#86868b] border-t border-black/5 bg-white">
+    <p>© 2026 GRADKASE Inc. All rights reserved.</p>
   </footer>
 
-  <!-- 交互脚本 -->
   <script>
-    function openModal(itemName) {
-      document.getElementById('modalTitle').innerText = itemName + ' · 即将发售';
+    function openModal(title) {
+      document.getElementById('modalTitle').innerText = title + ' · Reserved';
       document.getElementById('checkoutModal').classList.remove('hidden');
     }
     function closeModal() {
