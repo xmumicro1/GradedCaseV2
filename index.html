@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRADKASE — 官方旗舰展示</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; }
+    .text-gradient {
+      background: linear-gradient(180deg, #FFFFFF 0%, #86868B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-black text-[#f5f5f7] antialiased selection:bg-white selection:text-black">
+
+  <!-- 1. 顶部毛玻璃导航 -->
+  <nav class="fixed top-0 inset-x-0 z-40 h-12 bg-black/75 backdrop-blur-md border-b border-white/10 flex items-center justify-between px-6 max-w-6xl mx-auto md:rounded-full md:top-3">
+    <span class="font-extrabold tracking-widest text-sm text-white">GRADKASE</span>
+    <div class="flex items-center space-x-6 text-xs text-[#86868b]">
+      <a href="#store" class="hover:text-white transition">系列配件</a>
+      <a href="#specs" class="hover:text-white transition">工艺规格</a>
+      <button onclick="openModal('购物车当前为空')" class="relative hover:text-white transition">
+        🛒 购物车 <span class="ml-0.5 px-1.5 py-0.2 bg-white/20 rounded-full text-[10px] text-white">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 2. 电商 Hero 焦点图 -->
+  <section class="pt-28 pb-12 text-center px-4">
+    <span class="text-xs uppercase tracking-widest text-amber-500 font-bold mb-2 block">2026 Collection</span>
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-gradient mb-3">
+      重装防护。极简重塑。
+    </h1>
+    <p class="text-sm md:text-base text-[#86868b] max-w-lg mx-auto mb-6">
+      专为 PSA / BGS 评级卡量身打造的高透战术装甲外壳。
+    </p>
+  </section>
+
+  <!-- 3. 电商商品网格 (Product Showcase) -->
+  <section id="store" class="max-w-6xl mx-auto px-6 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- 商品 1 -->
+      <div class="bg-[#141415] border border-white/10 rounded-3xl p-6 flex flex-col justify-between hover:border-white/20 transition group">
+        <div class="w-full aspect-[4/3] bg-[#1c1c1e] rounded-2xl mb-6 flex items-center justify-center border border-white/5 group-hover:scale-[1.02] transition">
+          <span class="text-xs text-[#86868b] font-mono">[ PSA 磁吸战术卡砖 ]</span>
+        </div>
+        <div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-lg font-bold text-white">GRADKASE Pro Slab</h3>
+            <span class="text-base font-semibold text-white">¥168</span>
+          </div>
+          <p class="text-xs text-[#86868b] mb-6">99.9% 紫外线阻隔 / N52 强磁矩阵 / 45° 切角</p>
+          <div class="flex space-x-3">
+            <button onclick="openModal('PSA 磁吸战术卡砖')" class="flex-1 bg-[#0071e3] hover:bg-[#0077ed] text-white py-2.5 rounded-full text-xs font-medium transition">立即购买</button>
+            <button onclick="openModal('PSA 磁吸战术卡砖')" class="px-4 py-2.5 rounded-full border border-white/20 text-xs hover:bg-white/10 transition">加购物车</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 商品 2 -->
+      <div class="bg-[#141415] border border-white/10 rounded-3xl p-6 flex flex-col justify-between hover:border-white/20 transition group">
+        <div class="w-full aspect-[4/3] bg-[#1c1c1e] rounded-2xl mb-6 flex items-center justify-center border border-white/5 group-hover:scale-[1.02] transition">
+          <span class="text-xs text-[#86868b] font-mono">[ 评级卡机能收纳箱 ]</span>
+        </div>
+        <div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-lg font-bold text-white">Vault Box 60</h3>
+            <span class="text-base font-semibold text-white">¥399</span>
+          </div>
+          <p class="text-xs text-[#86868b] mb-6">可容纳 60 枚评级厚砖 / 防爆气阀 / 航空级锁扣</p>
+          <div class="flex space-x-3">
+            <button onclick="openModal('评级卡机能收纳箱')" class="flex-1 bg-[#0071e3] hover:bg-[#0077ed] text-white py-2.5 rounded-full text-xs font-medium transition">立即购买</button>
+            <button onclick="openModal('评级卡机能收纳箱')" class="px-4 py-2.5 rounded-full border border-white/20 text-xs hover:bg-white/10 transition">加购物车</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 商品 3 -->
+      <div class="bg-[#141415] border border-white/10 rounded-3xl p-6 flex flex-col justify-between hover:border-white/20 transition group">
+        <div class="w-full aspect-[4/3] bg-[#1c1c1e] rounded-2xl mb-6 flex items-center justify-center border border-white/5 group-hover:scale-[1.02] transition">
+          <span class="text-xs text-[#86868b] font-mono">[ 激光防伪全息贴纸包 ]</span>
+        </div>
+        <div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-lg font-bold text-white">Cyber Decals V1</h3>
+            <span class="text-base font-semibold text-white">¥49</span>
+          </div>
+          <p class="text-xs text-[#86868b] mb-6">高透哑光防刮 / 战术机能图腾 / 专配卡砖装饰</p>
+          <div class="flex space-x-3">
+            <button onclick="openModal('激光防伪全息贴纸包')" class="flex-1 bg-[#0071e3] hover:bg-[#0077ed] text-white py-2.5 rounded-full text-xs font-medium transition">立即购买</button>
+            <button onclick="openModal('激光防伪全息贴纸包')" class="px-4 py-2.5 rounded-full border border-white/20 text-xs hover:bg-white/10 transition">加购物车</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. 假结账/意向弹窗 (Modal) -->
+  <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-[#1c1c1e] border border-white/10 rounded-3xl max-w-sm w-full p-6 text-center">
+      <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4 text-xl">📦</div>
+      <h3 class="text-lg font-bold text-white mb-1" id="modalTitle">产品预约中</h3>
+      <p class="text-xs text-[#86868b] mb-6 leading-relaxed">
+        本期现货批次正通过官方合作渠道限量配给中。
+      </p>
+      
+      <!-- 引导按钮组：可替换为你的闲鱼、淘宝、Etsy 或小红书链接 -->
+      <div class="space-y-3">
+        <a href="https://your-shop-link.com" class="block w-full bg-[#0071e3] hover:bg-[#0077ed] text-white py-2.5 rounded-full text-xs font-medium transition">前往官方指定店购买</a>
+        <button onclick="closeModal()" class="block w-full py-2.5 text-xs text-[#86868b] hover:text-white transition">返回浏览</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. 极简页脚 -->
+  <footer class="py-12 border-t border-white/10 text-center text-xs text-[#86868b]">
+    <p>© 2026 GRADKASE. 保留所有权利。</p>
+  </footer>
+
+  <!-- 交互脚本 -->
+  <script>
+    function openModal(itemName) {
+      document.getElementById('modalTitle').innerText = itemName + ' · 即将发售';
+      document.getElementById('checkoutModal').classList.remove('hidden');
+    }
+    function closeModal() {
+      document.getElementById('checkoutModal').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
