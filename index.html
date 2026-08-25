@@ -8,6 +8,21 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+
+    /* CSS 无缝循环跑马灯动画 */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+    /* 鼠标悬停暂停滚动 */
+    .marquee-container:hover .marquee-track {
+      animation-play-state: paused;
+    }
   </style>
 </head>
 <body class="bg-[#f7f7f7] text-[#191919] antialiased selection:bg-[#ff6900] selection:text-white">
@@ -192,73 +207,127 @@
     </div>
   </section>
 
-  <!-- 6. Social Video Wall with TikTok Embed -->
-  <section id="community" class="max-w-6xl mx-auto px-4 mb-16">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-6">
+  <!-- 6. Seamless Video Marquee (视频循环跑马灯) -->
+  <section id="community" class="w-full overflow-hidden py-8 mb-16">
+    <div class="max-w-6xl mx-auto px-4 mb-6 flex flex-col md:flex-row md:items-end justify-between">
       <div>
         <span class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-[#ff6900]">#GRADKASE IN ACTION</span>
         <h2 class="text-xl md:text-2xl font-bold text-[#191919] mt-1">Community Showcase</h2>
       </div>
-      <p class="text-xs text-[#757575] mt-1 md:mt-0">Tag <span class="font-semibold text-[#191919]">@gradkase</span> on TikTok / Reels to be featured.</p>
+      <p class="text-xs text-[#757575] mt-1 md:mt-0">Hover to pause • Tag <span class="font-semibold text-[#191919]">@gradkase</span> to get featured</p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-start">
-
-      <!-- TikTok Embed 1 (Integrated) -->
-      <div class="bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex flex-col p-2">
-        <blockquote class="tiktok-embed"
-          cite="https://www.tiktok.com/@yourbrand/video/1234567890"
-          data-video-id="1234567890"
-          style="max-width: 100%; min-width: 100%;">
-          <section></section>
-        </blockquote>
-      </div>
-
-      <!-- Video Card 2 -->
-      <div class="bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex flex-col group">
-        <div class="relative aspect-[9/16] bg-[#191919] flex items-center justify-center overflow-hidden">
-          <div class="text-center p-4">
-            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-2 text-white group-hover:scale-110 transition">▶</div>
-            <span class="text-[10px] text-white/60 font-mono">[ Reel Embed 2 ]</span>
+    <!-- 跑马灯轨道容器 -->
+    <div class="marquee-container w-full overflow-hidden relative cursor-pointer">
+      <div class="marquee-track space-x-4 px-2">
+        
+        <!-- === 第一组卡片 (原始列表) === -->
+        <div class="w-[200px] md:w-[240px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0">
+          <div class="aspect-[9/16] bg-black relative">
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="https://placehold.co/400x710/191919/ffffff?text=Video+1">
+              <source src="your-video-1.mp4" type="video/mp4">
+            </video>
+            <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
           </div>
-          <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-medium px-2 py-0.5 rounded-md">Instagram</span>
-        </div>
-        <div class="p-3.5 bg-white">
-          <p class="text-xs font-bold text-[#191919] truncate">@pokegems_official</p>
-          <p class="text-[11px] text-[#757575] mt-0.5 line-clamp-1">PSA 10 Charizard drop test in GRADKASE</p>
-        </div>
-      </div>
-
-      <!-- Video Card 3 -->
-      <div class="bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex flex-col group">
-        <div class="relative aspect-[9/16] bg-[#191919] flex items-center justify-center overflow-hidden">
-          <div class="text-center p-4">
-            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-2 text-white group-hover:scale-110 transition">▶</div>
-            <span class="text-[10px] text-white/60 font-mono">[ TikTok Embed 3 ]</span>
+          <div class="p-3 bg-white">
+            <p class="text-xs font-bold text-[#191919] truncate">@cardcollector_pro</p>
+            <p class="text-[11px] text-[#757575] truncate mt-0.5">Slab drop test 🔥</p>
           </div>
-          <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-medium px-2 py-0.5 rounded-md">TikTok</span>
         </div>
-        <div class="p-3.5 bg-white">
-          <p class="text-xs font-bold text-[#191919] truncate">@slab_armory</p>
-          <p class="text-[11px] text-[#757575] mt-0.5 line-clamp-1">UV light test comparison after 30 days!</p>
-        </div>
-      </div>
 
-      <!-- Video Card 4 -->
-      <div class="bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex flex-col group">
-        <div class="relative aspect-[9/16] bg-[#191919] flex items-center justify-center overflow-hidden">
-          <div class="text-center p-4">
-            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-2 text-white group-hover:scale-110 transition">▶</div>
-            <span class="text-[10px] text-white/60 font-mono">[ Reel Embed 4 ]</span>
+        <div class="w-[200px] md:w-[240px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0">
+          <div class="aspect-[9/16] bg-black relative">
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="https://placehold.co/400x710/191919/ffffff?text=Video+2">
+              <source src="your-video-2.mp4" type="video/mp4">
+            </video>
+            <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">Reels</span>
           </div>
-          <span class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white text-[10px] font-medium px-2 py-0.5 rounded-md">Instagram</span>
+          <div class="p-3 bg-white">
+            <p class="text-xs font-bold text-[#191919] truncate">@pokegems_official</p>
+            <p class="text-[11px] text-[#757575] truncate mt-0.5">PSA 10 Charizard Armor</p>
+          </div>
         </div>
-        <div class="p-3.5 bg-white">
-          <p class="text-xs font-bold text-[#191919] truncate">@gradedgrails</p>
-          <p class="text-[11px] text-[#757575] mt-0.5 line-clamp-1">Vault Carrier 60 fully packed with grails 💼</p>
-        </div>
-      </div>
 
+        <div class="w-[200px] md:w-[240px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0">
+          <div class="aspect-[9/16] bg-black relative">
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="https://placehold.co/400x710/191919/ffffff?text=Video+3">
+              <source src="your-video-3.mp4" type="video/mp4">
+            </video>
+            <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">Shorts</span>
+          </div>
+          <div class="p-3 bg-white">
+            <p class="text-xs font-bold text-[#191919] truncate">@slab_armory</p>
+            <p class="text-[11px] text-[#757575] truncate mt-0.5">UV blocking test results</p>
+          </div>
+        </div>
+
+        <div class="w-[200px] md:w-[240px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0">
+          <div class="aspect-[9/16] bg-black relative">
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="https://placehold.co/400x710/191919/ffffff?text=Video+4">
+              <source src="your-video-4.mp4" type="video/mp4">
+            </video>
+            <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
+          </div>
+          <div class="p-3 bg-white">
+            <p class="text-xs font-bold text-[#191919] truncate">@gradedgrails</p>
+            <p class="text-[11px] text-[#757575] truncate mt-0.5">Vault Carrier 60 packed</p>
+          </div>
+        </div>
+
+        <!-- === 第二组卡片 (无缝循环副本) === -->
+        <div class="w-[200px] md:w-[240px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0">
+          <div class="aspect-[9/16] bg-black relative">
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="https://placehold.co/400x710/191919/ffffff?text=Video+1">
+              <source src="your-video-1.mp4" type="video/mp4">
+            </video>
+            <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
+          </div>
+          <div class="p-3 bg-white">
+            <p class="text-xs font-bold text-[#191919] truncate">@cardcollector_pro</p>
+            <p class="text-[11px] text-[#757575] truncate mt-0.5">Slab drop test 🔥</p>
+          </div>
+        </div>
+
+        <div class="w-[200px] md:w-[240px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0">
+          <div class="aspect-[9/16] bg-black relative">
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="https://placehold.co/400x710/191919/ffffff?text=Video+2">
+              <source src="your-video-2.mp4" type="video/mp4">
+            </video>
+            <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">Reels</span>
+          </div>
+          <div class="p-3 bg-white">
+            <p class="text-xs font-bold text-[#191919] truncate">@pokegems_official</p>
+            <p class="text-[11px] text-[#757575] truncate mt-0.5">PSA 10 Charizard Armor</p>
+          </div>
+        </div>
+
+        <div class="w-[200px] md:w-[240px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0">
+          <div class="aspect-[9/16] bg-black relative">
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="https://placehold.co/400x710/191919/ffffff?text=Video+3">
+              <source src="your-video-3.mp4" type="video/mp4">
+            </video>
+            <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">Shorts</span>
+          </div>
+          <div class="p-3 bg-white">
+            <p class="text-xs font-bold text-[#191919] truncate">@slab_armory</p>
+            <p class="text-[11px] text-[#757575] truncate mt-0.5">UV blocking test results</p>
+          </div>
+        </div>
+
+        <div class="w-[200px] md:w-[240px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0">
+          <div class="aspect-[9/16] bg-black relative">
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="https://placehold.co/400x710/191919/ffffff?text=Video+4">
+              <source src="your-video-4.mp4" type="video/mp4">
+            </video>
+            <span class="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-md text-white text-[9px] font-medium px-2 py-0.5 rounded">TikTok</span>
+          </div>
+          <div class="p-3 bg-white">
+            <p class="text-xs font-bold text-[#191919] truncate">@gradedgrails</p>
+            <p class="text-[11px] text-[#757575] truncate mt-0.5">Vault Carrier 60 packed</p>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -277,9 +346,6 @@
   <footer class="bg-white border-t border-black/5 py-8 text-center text-xs text-[#8c8c8c]">
     <p>© 2026 GRADKASE Technology Co., Ltd. All rights reserved.</p>
   </footer>
-
-  <!-- TikTok Embed Official JS -->
-  <script async src="https://www.tiktok.com/embed.js"></script>
 
   <script>
     function openModal(title) {
