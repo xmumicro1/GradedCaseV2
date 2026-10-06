@@ -347,82 +347,98 @@
 
     <!-- 右侧：询价与合作表单（占 8 列） -->
     <div class="lg:col-span-8 flex flex-col justify-center">
-      <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message sent! We will contact you soon.');">
-        
-        <!-- 姓名与机构 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-semibold text-[#191919] mb-1">Your Name</label>
-            <input 
-              type="text" 
-              required
-              placeholder="e.g. Alex Smith" 
-              class="w-full px-3.5 py-2.5 text-xs bg-[#fbfbfb] rounded-xl border border-black/10 focus:outline-none focus:border-[#ff5f00] focus:bg-white transition"
-            />
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-[#191919] mb-1">Store / Business Name <span class="text-[#86868b] font-normal">(Optional)</span></label>
-            <input 
-              type="text" 
-              placeholder="e.g. Card Collector Co." 
-              class="w-full px-3.5 py-2.5 text-xs bg-[#fbfbfb] rounded-xl border border-black/10 focus:outline-none focus:border-[#ff5f00] focus:bg-white transition"
-            />
-          </div>
-        </div>
+      <form id="inquiryForm" class="space-y-4">
+  <!-- 1. Web3Forms 核心配置项 -->
+  <input type="hidden" name="access_key" value="1e97b896-4ebc-45a6-9069-d8256bcebfca" />
+  
+  <!-- 自定义收到邮件时的标题 -->
+  <input type="hidden" name="subject" value="New Inquiry - GradedCase V2 Website" />
+  
+  <!-- 防垃圾/防爬虫蜜罐（人类不可见，机器人填了会被自动拦截） -->
+  <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 
-        <!-- 联系方式（邮箱必填，电话选填） -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-semibold text-[#191919] mb-1">Email Address</label>
-            <input 
-              type="email" 
-              required
-              placeholder="alex@example.com" 
-              class="w-full px-3.5 py-2.5 text-xs bg-[#fbfbfb] rounded-xl border border-black/10 focus:outline-none focus:border-[#ff5f00] focus:bg-white transition"
-            />
-          </div>
-          <div>
-            <label class="block text-xs font-semibold text-[#191919] mb-1">Phone / WhatsApp <span class="text-[#86868b] font-normal">(Optional)</span></label>
-            <input 
-              type="tel" 
-              placeholder="+1 (xxx) xxx-xxxx" 
-              class="w-full px-3.5 py-2.5 text-xs bg-[#fbfbfb] rounded-xl border border-black/10 focus:outline-none focus:border-[#ff5f00] focus:bg-white transition"
-            />
-          </div>
-        </div>
+  <!-- 2. 表单输入项 -->
+  <!-- 姓名与店名 -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <label class="block text-xs font-semibold text-[#191919] mb-1">Your Name</label>
+      <input 
+        type="text" 
+        name="name"
+        required
+        placeholder="e.g. Alex Smith" 
+        class="w-full px-3.5 py-2.5 text-xs bg-[#fbfbfb] rounded-xl border border-black/10 focus:outline-none focus:border-[#ff5f00] focus:bg-white transition"
+      />
+    </div>
+    <div>
+      <label class="block text-xs font-semibold text-[#191919] mb-1">Store / Business Name <span class="text-[#86868b] font-normal">(Optional)</span></label>
+      <input 
+        type="text" 
+        name="business_name"
+        placeholder="e.g. Apex Card Shop" 
+        class="w-full px-3.5 py-2.5 text-xs bg-[#fbfbfb] rounded-xl border border-black/10 focus:outline-none focus:border-[#ff5f00] focus:bg-white transition"
+      />
+    </div>
+  </div>
 
-        <!-- 感兴趣的产品下拉选择 -->
-        <div>
-          <label class="block text-xs font-semibold text-[#191919] mb-1">Interested Product</label>
-          <select class="w-full px-3.5 py-2.5 text-xs bg-[#fbfbfb] rounded-xl border border-black/10 focus:outline-none focus:border-[#ff5f00] focus:bg-white transition text-[#191919]">
-            <option value="wholesale">Wholesale & Distribution (Full Catalog)</option>
-            <option value="tpu-v2">TPU Double Shield V2</option>
-            <option value="high-gloss">High Gloss Aluminum Magnet Case</option>
-            <option value="raw-case">Aluminum Case for Ungraded Card</option>
-            <option value="base-stand">Aluminum Case Base Stand</option>
-            <option value="custom">Custom Batch Inquiries</option>
-          </select>
-        </div>
+  <!-- 联系方式 -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <label class="block text-xs font-semibold text-[#191919] mb-1">Email Address</label>
+      <input 
+        type="email" 
+        name="email"
+        required
+        placeholder="alex@example.com" 
+        class="w-full px-3.5 py-2.5 text-xs bg-[#fbfbfb] rounded-xl border border-black/10 focus:outline-none focus:border-[#ff5f00] focus:bg-white transition"
+      />
+    </div>
+    <div>
+      <label class="block text-xs font-semibold text-[#191919] mb-1">Phone / WhatsApp <span class="text-[#86868b] font-normal">(Optional)</span></label>
+      <input 
+        type="tel" 
+        name="phone"
+        placeholder="+1 (xxx) xxx-xxxx" 
+        class="w-full px-3.5 py-2.5 text-xs bg-[#fbfbfb] rounded-xl border border-black/10 focus:outline-none focus:border-[#ff5f00] focus:bg-white transition"
+      />
+    </div>
+  </div>
 
-        <!-- 详细需求 -->
-        <div>
-          <label class="block text-xs font-semibold text-[#191919] mb-1">Message</label>
-          <textarea 
-            rows="3" 
-            placeholder="Tell us about your estimated quantities, target delivery date, or questions..." 
-            class="w-full px-3.5 py-2.5 text-xs bg-[#fbfbfb] rounded-xl border border-black/10 focus:outline-none focus:border-[#ff5f00] focus:bg-white transition resize-none"
-          ></textarea>
-        </div>
+  <!-- 感兴趣的产品 -->
+  <div>
+    <label class="block text-xs font-semibold text-[#191919] mb-1">Interested Product</label>
+    <select name="interested_product" class="w-full px-3.5 py-2.5 text-xs bg-[#fbfbfb] rounded-xl border border-black/10 focus:outline-none focus:border-[#ff5f00] focus:bg-white transition text-[#191919]">
+      <option value="Wholesale Full Catalog">Wholesale & Distribution (Full Catalog)</option>
+      <option value="High Gloss Aluminum Magnet Case">High Gloss Aluminum Magnet Case</option>
+      <option value="Aluminum Case for Ungraded Card">Aluminum Case for Ungraded Card Brick</option>
+      <option value="Aluminum Case Base Stand">Aluminum Case Base Stand</option>
+      <option value="TPU Bumper">TPU Bumper</option>
+      <option value="Custom Batch / Private Label">Custom Batch / Private Label</option>
+    </select>
+  </div>
 
-        <!-- 提交按钮 -->
-        <button 
-          type="submit" 
-          class="w-full bg-[#191919] hover:bg-[#ff5f00] text-white text-xs font-bold py-3 rounded-xl transition duration-200 shadow-sm"
-        >
-          Send Inquiry
-        </button>
+  <!-- 留言需求 -->
+  <div>
+    <label class="block text-xs font-semibold text-[#191919] mb-1">Message</label>
+    <textarea 
+      name="message"
+      rows="3" 
+      required
+      placeholder="Tell us about your estimated quantities, target delivery date, or questions..." 
+      class="w-full px-3.5 py-2.5 text-xs bg-[#fbfbfb] rounded-xl border border-black/10 focus:outline-none focus:border-[#ff5f00] focus:bg-white transition resize-none"
+    ></textarea>
+  </div>
 
-      </form>
+  <!-- 提交按钮与状态提示 -->
+  <button 
+    type="submit" 
+    id="submitBtn"
+    class="w-full bg-[#191919] hover:bg-[#ff5f00] text-white text-xs font-bold py-3 rounded-xl transition duration-200 shadow-sm flex items-center justify-center"
+  >
+    <span>Send Inquiry</span>
+  </button>
+  <div id="formStatus" class="hidden text-center text-xs py-2"></div>
+</form>
     </div>
 
   </div>
