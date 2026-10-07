@@ -97,7 +97,100 @@
 
   </div>
 
+<div id="mag" class="max-w-6xl mx-auto px-4 mt-4 md:mt-6">
 
+  <!-- 大图 -->
+  <div class="bg-white rounded-2xl md:rounded-3xl border border-black/5 shadow-sm overflow-hidden">
+    <img
+      id="mainImage"
+      src="images/mag1.jpg"
+      alt="Alluminum Magnet Case V2"
+      class="w-full h-auto block"
+    >
+  </div>
+
+
+  <!-- 缩略图 -->
+  <div class="mt-4 flex gap-3 overflow-x-auto pb-2">
+
+    <button
+      onclick="changeImage('images/mag1.jpg', this)"
+      class="thumbnail shrink-0 w-24 h-20 md:w-32 md:h-24 rounded-xl overflow-hidden border-2 border-[#ff6900] bg-white"
+    >
+      <img
+        src="images/mag1.jpg"
+        class="w-full h-full object-cover"
+      >
+    </button>
+
+
+    <button
+      onclick="changeImage('images/mag2.jpg', this)"
+      class="thumbnail shrink-0 w-24 h-20 md:w-32 md:h-24 rounded-xl overflow-hidden border-2 border-transparent bg-white"
+    >
+      <img
+        src="images/mag2.jpg"
+        class="w-full h-full object-cover"
+      >
+    </button>
+
+
+    <button
+      onclick="changeImage('images/mag3.jpg', this)"
+      class="thumbnail shrink-0 w-24 h-20 md:w-32 md:h-24 rounded-xl overflow-hidden border-2 border-transparent bg-white"
+    >
+      <img
+        src="images/mag3.jpg"
+        class="w-full h-full object-cover"
+      >
+    </button>
+
+
+    <button
+      onclick="changeImage('images/mag4.jpg', this)"
+      class="thumbnail shrink-0 w-24 h-20 md:w-32 md:h-24 rounded-xl overflow-hidden border-2 border-transparent bg-white"
+    >
+      <img
+        src="images/mag4.jpg"
+        class="w-full h-full object-cover"
+      >
+    </button>
+
+
+    <button
+      onclick="changeImage('images/mag5.jpg', this)"
+      class="thumbnail shrink-0 w-24 h-20 md:w-32 md:h-24 rounded-xl overflow-hidden border-2 border-transparent bg-white"
+    >
+      <img
+        src="images/mag5.jpg"
+        class="w-full h-full object-cover"
+      >
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+function changeImage(imageSrc, thumbnail) {
+
+  // 更换大图
+  document.getElementById('mainImage').src = imageSrc;
+
+  // 清除所有缩略图的橙色边框
+  document.querySelectorAll('.thumbnail').forEach(function(item) {
+    item.classList.remove('border-[#ff6900]');
+    item.classList.add('border-transparent');
+  });
+
+  // 当前图片加橙色边框
+  thumbnail.classList.remove('border-transparent');
+  thumbnail.classList.add('border-[#ff6900]');
+}
+
+</script>
 
   <!-- 7. Modal -->
   <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
