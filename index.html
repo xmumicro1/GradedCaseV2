@@ -301,24 +301,25 @@
         </div>
       </a>
 
-     <!-- Card with Vertical Vimeo Player -->
+  <!-- Card with True Vertical Vimeo Player -->
 <div class="w-[240px] md:w-[270px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0 block transition">
   
-  <!-- 保持竖屏比例 aspect-[9/16] -->
+  <!-- 竖屏比例容器 -->
   <div class="aspect-[9/16] bg-black relative overflow-hidden">
     <iframe 
       title="vimeo-player" 
-      src="https://player.vimeo.com/video/358501342?h=3fb957a8c2&background=1&autoplay=1&loop=1&byline=0&title=0" 
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.77%] h-full pointer-events-none object-cover" 
+      src="https://player.vimeo.com/video/你的竖屏视频ID" 
+      class="w-full h-full border-0" 
       frameborder="0" 
-      allow="autoplay; fullscreen; picture-in-picture">
+      allow="autoplay; fullscreen; picture-in-picture" 
+      allowfullscreen>
     </iframe>
   </div>
 
   <!-- 底部文字说明 -->
   <div class="p-3.5 bg-white">
     <p class="text-xs font-bold text-[#191919] truncate">@slab_armory</p>
-    <p class="text-[11px] text-[#757575] truncate mt-0.5">Vimeo Video Demo ↗</p>
+    <p class="text-[11px] text-[#757575] truncate mt-0.5">Vertical Video ↗</p>
   </div>
 
 </div>
