@@ -301,19 +301,17 @@
         </div>
       </a>
 
-      <!-- Card with Vimeo Player -->
+     <!-- Card with Vertical Vimeo Player -->
 <div class="w-[240px] md:w-[270px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0 block transition">
   
-  <!-- 视频容器（改成 16:9 横屏比例以适配 Vimeo） -->
-  <div class="aspect-[16/9] bg-black relative overflow-hidden">
+  <!-- 保持竖屏比例 aspect-[9/16] -->
+  <div class="aspect-[9/16] bg-black relative overflow-hidden">
     <iframe 
       title="vimeo-player" 
-      src="https://player.vimeo.com/video/377332268?h=edfde3cfdf" 
-      class="w-full h-full border-0" 
+      src="https://player.vimeo.com/video/358501342?h=3fb957a8c2&background=1&autoplay=1&loop=1&byline=0&title=0" 
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.77%] h-full pointer-events-none object-cover" 
       frameborder="0" 
-      referrerpolicy="strict-origin-when-cross-origin" 
-      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-      allowfullscreen>
+      allow="autoplay; fullscreen; picture-in-picture">
     </iframe>
   </div>
 
