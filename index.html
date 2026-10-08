@@ -383,40 +383,43 @@
       <div class="mt-4 pt-4 border-t border-black/5 w-full text-center">
   <span class="block text-[10px] text-[#86868b] uppercase tracking-wider font-mono mb-1">Email Us Directly</span>
   
- <template>
-  <div class="mt-4 pt-4 border-t border-black/5 w-full flex flex-col items-center text-center">
-    <span class="block text-[10px] text-[#86868b] uppercase tracking-wider font-mono mb-1">Email Us Directly</span>
-    
-    <!-- 邮箱地址 -->
-    <span class="text-xs font-mono font-medium text-[#191919] select-all tracking-tight">
+  <div class="inline-flex items-center gap-2 bg-[#f5f5f7] px-3 py-1.5 rounded-lg border border-black/5">
+    <!-- 邮箱地址文本 -->
+    <span id="email-text" class="text-xs font-mono font-medium text-[#191919] select-all">
       gradedcase-service@gmail.com
     </span>
-
-    <!-- 位于下方的复制按钮 -->
+    
+    <!-- 复制按钮 -->
     <button 
       type="button"
-      @click="copyEmail"
-      class="mt-2 inline-flex items-center justify-center text-[11px] font-medium px-3 py-1 rounded-md border border-black/5 transition active:scale-95 cursor-pointer shadow-2xs"
-      :class="copied ? 'text-[#ff5f00] border-orange-200 bg-orange-50' : 'bg-[#f5f5f7] text-[#191919] hover:text-[#ff5f00] hover:bg-orange-50'"
+      id="copy-btn"
+      onclick="copyEmail()"
+      class="text-[11px] font-medium px-2 py-0.5 rounded bg-white text-[#191919] hover:text-[#ff5f00] hover:bg-orange-50 border border-black/5 shadow-2xs transition active:scale-95 cursor-pointer"
     >
-      {{ copied ? '已复制!' : '复制邮箱' }}
+      复制
     </button>
   </div>
-</template>
+</div>
 
-<script setup>
-import { ref } from 'vue'
-
-const copied = ref(false)
-const copyEmail = async () => {
-  await navigator.clipboard.writeText('gradedcase-service@gmail.com')
-  copied.value = true
-  setTimeout(() => {
-    copied.value = false
-  }, 2000)
-}
+<script>
+  function copyEmail() {
+    const email = document.getElementById('email-text').innerText.trim();
+    const btn = document.getElementById('copy-btn');
+    
+    navigator.clipboard.writeText(email).then(() => {
+      btn.innerText = '已复制!';
+      btn.classList.add('text-[#ff5f00]', 'border-orange-200');
+      
+      setTimeout(() => {
+        btn.innerText = '复制';
+        btn.classList.remove('text-[#ff5f00]', 'border-orange-200');
+      }, 2000);
+    });
+  }
 </script>
 
+
+    </div>
 
     <!-- 右侧：询价与合作表单（占 8 列） -->
     <div class="lg:col-span-8 flex flex-col justify-center">
