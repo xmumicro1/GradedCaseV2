@@ -401,22 +401,7 @@
   </div>
 </div>
 
-<script>
-  function copyEmail() {
-    const email = document.getElementById('email-text').innerText.trim();
-    const btn = document.getElementById('copy-btn');
-    
-    navigator.clipboard.writeText(email).then(() => {
-      btn.innerText = '已复制!';
-      btn.classList.add('text-[#ff5f00]', 'border-orange-200');
-      
-      setTimeout(() => {
-        btn.innerText = '复制';
-        btn.classList.remove('text-[#ff5f00]', 'border-orange-200');
-      }, 2000);
-    });
-  }
-</script>
+
 
 
     </div>
