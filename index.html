@@ -316,14 +316,15 @@
         </div>
       </a>
 
- <!-- Card with True Vertical Vimeo Player -->
+<!-- Card with True Vertical Vimeo Player -->
 <div class="w-[240px] md:w-[270px] bg-white rounded-2xl border border-black/5 shadow-sm overflow-hidden flex-shrink-0 block transition">
   
   <!-- 竖屏比例容器 -->
   <div class="aspect-[9/16] bg-black relative overflow-hidden">
     <iframe 
+      id="vimeo-player"
       title="vimeo-player" 
-      src="https://player.vimeo.com/video/1235289136?h=30524668a7" 
+      src="https://player.vimeo.com/video/1235289136?h=30524668a7&title=0&byline=0&portrait=0" 
       class="w-full h-full border-0" 
       frameborder="0" 
       referrerpolicy="strict-origin-when-cross-origin" 
@@ -340,10 +341,25 @@
 
 </div>
 
+<!-- Vimeo 官方 SDK + 自动回到封面控制脚本 -->
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+  const iframeElement = document.getElementById('vimeo-player');
+  if (iframeElement) {
+    const player = new Vimeo.Player(iframeElement);
+
+    // 监听播放完毕事件
+    player.on('ended', function() {
+      // 进度拉回第 0 秒并暂停，即可重新呈现封面海报
+      player.setCurrentTime(0).then(function() {
+        player.pause();
+      });
+    });
+  }
+</script>
+
     </div>
   </section>
-
-1<iframe title="vimeo-player" src="https://player.vimeo.com/video/1235289136?h=30524668a7" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
 
 
 
